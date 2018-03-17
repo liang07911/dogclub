@@ -1,9 +1,0 @@
-[ 2018-02-12T01:25:34+08:00 ] 117.179.249.185 /install.php?s=/Install/step2.html
-ERR: Host '127.0.0.1' is not allowed to connect to this MySQL server
-
-[ 2018-02-12T13:16:46+08:00 ] 117.179.249.185 /install.php?s=/Install/step2.html
-ERR: Host '127.0.0.1' is not allowed to connect to this MySQL server
-
-[ 2018-02-12T13:17:36+08:00 ] 117.179.249.185 /install.php?s=/Install/step2.html
-ERR: Access denied for user 'qdm17013333'@'115.29.78.18' (using password: YES)
-
