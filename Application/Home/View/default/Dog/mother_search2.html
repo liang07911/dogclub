@@ -1,0 +1,92 @@
+<include file="Public/header"/>
+<section class="banner"></section>
+<section class="box">
+	<div class="container clearfix">
+		<div class="right" style="width:100%">
+	<div class="sear">
+				<div class="title">
+					<h3>犬母录入</h3>
+				</div>
+				<div class="form">
+					<form action="__SELF__" method="post">
+						<div class="line_double center w_486 p_l_0" >
+							<div class="left"><span>母亲血统编号</span></div>
+							<div class="rights"><input type="text" name="studbook" class="studbook"></div>
+						</div>
+			
+						<div class="line_button center w_476 clearfix">
+							<input type="button" value="查询" id="submits">
+							<a href="{:U('Dog/mother_insert',array('id'=>$dog_id,'act'=>'do'))}" class="button_a pull_right b_c_red" style="padding: 0;text-align: center;">直接录入</a>
+							
+						</div>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$('#submits').on('click',function(){
+						if($('.studbook').val()=== ''){
+							layer.msg('请填写母亲血统编号');
+							return false;
+						}
+						$('form').submit();
+					})
+				</script>
+			</div>
+			<if condition="$res eq 1">
+			<notempty name="mother">
+			<!--查询到结果输出 in-->
+			<div class="Result">
+				<div class="title">
+					<h3>查询结果</h3>
+				</div>
+				<div class="table">
+					<ul>
+						<li class="fa">
+							<ul class="clearfix">
+								<li>犬名</li>
+								<li>性别</li>
+								<li>芯片号</li>
+								<li>耳号</li>
+								<li>出生日期</li>
+								<li>血统证书号</li>
+								<li>犬主</li>
+								<li>繁殖人</li>
+							</ul>
+						</li>
+						<li class="fa">
+							<ul class="clearfix">
+								<li>{$mother.dog_name}</li>
+								<li>
+								<if condition="$mother.dog_sex eq 0">公
+								<else />母
+								</if>
+								</li>
+								<li>{$mother.mic_num}</li>
+								<li>{$mother.ear_num}</li>
+								<li>{$mother.birthday|date='Y-m-d',###}</li>
+								<li>{$mother.studbook}</li>
+								<li>{$mother.dog_owner}</li>
+								<li>{$mother.reproduce}</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="line_button p_l_0">
+					<a href="{:U('Dog/mother_link2',array('id'=>$mother['id'],'did'=>$dog_id))}" class="button_a center">关联</a>
+				</div>
+			</div>
+			<!--查询到结果输出 end-->
+			<else />
+			<!--无结果输出 in-->
+			<div class="Result">
+				<div class="title">
+					<h3>查询结果</h3>
+				</div>
+				<p class="text_center m_tb_50">查无结果,<a href="{:U('Dog/mother_insert',array('id'=>$dog_id))}" class="text_decoration">点此录入</a></p>
+			</div>
+			<!--无结果输出 ent-->
+			</notempty>
+			</if>
+		</div>
+	</div>
+</section>
+<include file="Public/footer"/>

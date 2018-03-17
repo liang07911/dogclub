@@ -1,0 +1,20 @@
+.swiper-button-prev{background: url(../images/prev.png) no-repeat;background-size: 100%;height: 55px;width: 30px;}
+.swiper-button-next{background: url(../images/next.png) no-repeat;background-size: 100%;height: 55px;width: 30px;}
+.swiper-container {width: 100%;height:900px;max-height: 900px;max-width:1920px;}
+header .container,footer .container,section .container{width: 1200px; margin: 0 auto;}
+header{position: absolute;z-index: 999;width: 100%;color: #fff;border-bottom: 2px solid #7a7b78}
+header .container{position: relative;}
+header .container a.logo,header .container ul.nav,header .container .header_user{float: left;}
+header .container a.logo{margin: 13px 0; width: 74px;height: 74px;display: block;background: url('../images/logo.png') no-repeat;}
+header .container ul.nav{margin-left: 130px;}
+header .container ul.nav li{display: inline-block; height: 100px;line-height: 100px;width: 150px;text-align: center;margin-right: 50px;}
+header .container ul.nav li a{color: #fff;}
+header .container ul.nav li:hover,header .container ul.nav li.active{border-bottom: 3px solid #fec626;}
+header .container .header_user{position: absolute;right: 0}
+header .container .header_user .login a{text-align: center;float: left;display: block; height: 40px;line-height: 36px;width: 100px;margin:30px 0;border:1px solid #fff; border-radius: 10px;color: #fff;}
+header .container .header_user .login a:first-child{margin-right: 50px;}
+header .container .header_user .login a:hover,header .container .header_user .login a.hover{background-color: #fff;color: #000}
+header .container .header_user .vip .pre a{text-align: center;height: 100px;line-height: 100px;color: #fff;}
+header .container .header_user .vip .list a{text-align: center;height: 50px;line-height: 50px;color: #fff;}
+header .container .header_user .vip .list{display: none;}
+header .container .header_user .vip .active{display: block;}

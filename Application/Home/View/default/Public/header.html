@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{:C('WEB_SITE_TITLE')}</title>
+	<link href="Public/Home/css/normalize.css" rel="stylesheet" type="text/css">
+	<link href="Public/Home/css/font-face.css" rel="stylesheet" type="text/css">
+	<link href="Public/Home/css/swiper-3.4.2.min.css" rel="stylesheet" type="text/css">
+	<link href="Public/Home/css/public.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="Public/Home/js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript" src="Public/Home/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="Public/Home/layer/layer.js"></script>
+	<script type="text/javascript" src="Public/Home/js/chineserp.js"></script>
+	<script type="text/javascript" src="Public/Home/js/jquery.validate.js"></script>
+	<script type="text/javascript" src="Public/Home/js/schedule.js"></script>
+	<script type="text/javascript" src="Public/Home/js/public.js"></script>
+	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+	
+	
+</head>
+<body>
+<!-- 轮播图 START -->
+<header>
+	<div class="container clearfix">
+		<a href="" class="logo"></a>
+		<ul class="nav">
+			<think:nav name="nav">
+            	<eq name="nav.pid" value="0">
+                <li>
+                    <a href="{$nav.url|get_nav_url}" target="<eq name='nav.target' value='1'>_blank<else/>_self</eq>">{$nav.title}</a>
+                </li>
+                </eq>
+            </think:nav>
+		</ul>
+		<div class="header_user clearfix">
+            <if condition="is_login()">
+				<div class="vip">
+				<div class="pre">
+					<a href="{:U('User/dog_list')}">
+					<if condition="$headurl neq '' ">
+					<img src="{$headurl}" alt="">
+					<else />
+					<img src="Public/Home/images/img_head.png" alt="">
+					</if>
+					</a>
+				</div>
+				<div class="list">
+					<ul>
+						<li><a href="{:U('User/dog_list')}"><img src="Public/Home/images/icon_dog.png" alt=""><span>我曾录入的犬只</span></a></li>
+						<li><a href="{:U('User/index')}"><img src="Public/Home/images/icon_infor.png" alt=""><span>会员信息</span></a></li>
+						<li><a href="{:U('User/profile')}"><img src="Public/Home/images/icon_set.png" alt=""><span>修改密码</span></a></li>
+						<li><a href="{:U('User/logout')}"><img src="Public/Home/images/icon_exit.png" alt=""><span>退出</span></a></li>
+					</ul>
+				</div>
+			</div>
+               	
+	 		<else/>
+				<div class="login">
+					<a href="{:U('User/login')}" class="login-btn">登录</a>
+					<!--<a href="{:U('User/register')}" class="reg-btn hover">注册</a>-->
+					<a href="{:U('User/login')}" class="reg-btn hover">注册</a>
+				</div>
+			</if>
+			
+		</div>
+	</div>
+</header>

@@ -1,0 +1,21 @@
+<include file="Public/header"/>
+
+<section class="banner"></section>
+<section class="box">
+	<div class="container clearfix">
+		<div class="left">
+			<h3>信息查询</h3>
+			<ul class="menu">
+				<li><a href="{:U('Dog/dog_search')}" target="right" class="active">犬只查询</a></li>
+				<li><a href="{:U('Dog/dog_insert')}" target="right">犬只录入</a></li>
+				<li><a href="{:U('Dog/user_search')}" target="right">会员查询</a></li>
+			</ul>
+		</div>
+		
+		<div class="right">
+			<iframe name="right" src="{:U('Dog/dog_search')}" width="100%" frameborder="no" scrolling="no" id="external-frame" onload="setIframeHeight(this)"></iframe>
+		</div>
+	</div>
+</section>
+
+<include file="Public/footer"/> 

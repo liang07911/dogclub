@@ -1,0 +1,146 @@
+html {
+	font-size: 625%!important; /*100px*/
+	font-family:"微软雅黑,宋体";
+	width: 100%;
+	max-width: 800px;
+	margin:0 auto;
+	color:#222;
+}
+/*
+@media only screen and (min-width: 320px){  
+    html {  
+        font-size: 250%!important;
+    }  
+}*/
+@media only screen and (min-width: 320px){  
+    html {  
+        font-size: 281%!important;
+    }  
+}
+@media only screen and (min-width: 380px){  
+    html {  
+        font-size: 375%!important; 
+    }  
+}  
+@media only screen and (min-width: 480px){  
+    html {  
+        font-size: 437.5%!important; 
+    }  
+}  
+@media only screen and (min-width: 560px){  
+    html {  
+        font-size: 500%!important; 
+    }  
+}  
+@media only screen and (min-width: 640px){  
+    html {  
+        font-size: 625%!important; 
+    }  
+}  
+ul,p{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #222;
+}
+section{width: 100%;max-width: 800px;font-size: .2rem;}
+section .container,footer .container{padding:.1rem;}.
+section h1{font-size: .3rem;color: #c12a34;padding:.2rem 0;}
+section h6{font-size: .22rem;margin:0; width: 96%}
+section p{font-size:.2rem;/*margin: 0*/}
+/*  =========
+	工具样式
+    =========  */
+.line{height: 1px;background-color: #d9d9d9 ;width:100%;display: block;max-width: 800px;}
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+a.button,input[type=submit]{
+	background-color: #c12a37;
+	border-radius: .05rem;
+	border: 0;
+	text-align: center;
+	padding: .1rem;
+	font-size: .2rem;
+	color: #fff;
+	display: block;
+	margin:.1rem auto;
+	width: 1.4rem;
+}
+a.button2{
+	background-color: #0e334b;
+	border-radius: .05rem;
+	border: 0;
+	text-align: center;
+	padding: .1rem;
+	font-size: .2rem;
+	color: #fff;
+	width: 1.4rem;
+}
+
+.pull-right{
+	float: right !important;
+}
+.pull-left{
+	float: left !important;
+}
+.p-relative{
+	position: relative;
+}
+.p-absolute{
+	position: absolute;
+}
+.text-right{
+	text-align: right !important;
+}
+.text-left{
+	text-align: left !important;
+}
+.text-center{
+	text-align: center !important;
+}
+.hide{
+	display: none !important;
+}
+.show{
+	display: block !important;
+}
+.clearfix:before,
+.clearfix:after{/*触发bfc 清除浮动*/
+	content:" ";
+	display: table;
+}
+.clearfix:after{
+	clear: both;
+}
+/*
+.clearfix{
+	zoom:1; //兼容性处理IE6,7
+}*/
+
+/*网站头部*/
+body{margin-bottom: 1.15rem;}
+header{font-size: 0.3rem;background-color: #fdc700}
+header p{margin: 0;padding: .36rem 0;line-height: .3rem;}
+header a img{width: .34rem; padding: .36rem 0;top: 0;right: .2rem;line-height: .3rem;}
+
+footer{position: fixed;bottom: 0;width: 100%;max-width: 800px;}
+footer ul{ display:flex;font-size: .2rem;padding: .2rem 0;background-color: #f9f9f9}
+footer ul li{ flex:1;text-align: center;}
+footer ul li a{display: block;background-size: .52rem .44rem !important; }
+footer ul li a span{padding-top: .52rem;display: block;}
+footer ul li:nth-child(1) a{background: url(../images/btn_home.png) no-repeat top;}
+footer ul li:nth-child(2) a{background: url(../images/btn_xinxi.png) no-repeat top;}
+footer ul li:nth-child(3) a{background: url(../images/btn_lianxi.png) no-repeat top;}
+footer ul li.active a{color: #f9c121!important;}
+footer ul li.active:nth-child(1) a{background: url(../images/btn_home_on.png) no-repeat top;}
+footer ul li.active:nth-child(2) a{background: url(../images/btn_xinxi_on.png) no-repeat top;}
+footer ul li.active:nth-child(3) a{background: url(../images/btn_lianxi_on.png) no-repeat top;}
+footer ul li img{width: .52rem;}

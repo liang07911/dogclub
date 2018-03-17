@@ -1,0 +1,26 @@
+<include file="Public/header"/>
+
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+      <div class="swiper-slide"  style="background:url('Public/Home/images/banner.jpg') no-repeat 100% center"></div>
+      <div class="swiper-slide" style="background:url('Public/Home/images/banner.jpg') no-repeat 100% center"></div>
+  </div>
+   <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+<script type="text/javascript">
+window.onload = function() {
+  var mySwiper = new Swiper('.swiper-container',{
+    loop: true,//循环
+    autoplay : 5000,//可选选项，自动滑动
+    keyboardControl:true,
+   	nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev'
+  }); 
+
+}
+</script>
+<!-- 轮播图 END -->
+
+<include file="Public/footer"/>

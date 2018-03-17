@@ -1,0 +1,57 @@
+<include file="Public/header"/>
+<section class="banner"></section>
+<section class="box">
+	<div class="container clearfix">
+		<div class="left">
+			<h3>会员信息</h3>
+			<ul>
+				<li><a href="{:U('User/index')}">会员基本信息</a></li>
+				<li><a href="{:U('User/dog_list')}" class="active">我的犬只</a></li>
+				<li><a href="{:U('User/profile')}">修改密码</a></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="sear">
+				<div class="title">
+					<h3>我的犬只</h3>
+				</div>
+				<div class="table vip_table">
+					<ul>
+						<li class="fa">
+							<ul class="clearfix">
+								<li>犬名</li>
+								<li>性别</li>
+								<li>芯片号</li>
+								<li>耳号</li>
+								<li>出生日期</li>
+								<li>血统证书号</li>
+								<li>繁殖人</li>
+								<li>操作</li>
+								
+							</ul>
+						</li>
+						<li class="fa">
+							<volist name="dogArr" id="list">
+							<ul class="clearfix">
+								<li><a href="javascript:void(0)" style="color:#fec601" onclick="jump({$list.id})">{$list.dog_name}</a></li>
+								<li>
+								<if condition="$list.dog_sex eq 0">公
+								<else />母
+								</if>
+								</li>
+								<li>{$list.mic_num}</li>
+								<li>{$list.ear_num}</li>
+								<li>{$list.birthday}</li>
+								<li>{$list.studbook}</li>
+								<li>{$list.reproduce}</li>
+								<li><a href="{:U('Dog/dog_edit',array('id'=>$list['id']))}" style="color:#fec601">修改</a></li>
+							</ul>
+							</volist>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<include file="Public/footer"/>

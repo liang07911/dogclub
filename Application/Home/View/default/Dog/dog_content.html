@@ -1,0 +1,268 @@
+<include file="Public/header"/>
+
+<style>
+.itme_border img{width:204px;height:200px;}
+</style>
+
+<section class="banner"></section>
+<section class="box">
+	<div class="container clearfix">
+		<div class="author">
+			<div class="author1">
+				<if condition="$headurl">
+					 <img src="{$headurl}">
+					 <else />
+					 <img src="Public/Home/images/itme_author.jpg" alt="">
+				</if>
+				<span>{:get_username()}</span>
+				<notempty name='show'>
+				<div class="button">
+					<a href="{:U('Dog/dog_edit',array('id'=>$id))}" class="button_a">修改信息</a>
+				</div>
+				</notempty>
+			</div>
+			<div class="author2">
+			<if condition="$dogInfo.pic_url neq '' ">
+					 <img src="{$dogInfo.pic_url}">
+					 <else />
+					 <img src="Public/Home/images/itme_author.jpg" alt="">
+				</if>
+						
+			</div>
+		</div>
+		<div class="table">
+			<ul>
+				<li class="fa">
+					<ul class="clearfix">
+						<li>犬名</li>
+						<li>性别</li>
+						<li>芯片号</li>
+						<li>耳号</li>
+						<li>出生日期</li>
+						<li>血统证书号</li>
+						<li>犬主</li>
+						<li>繁殖人</li>
+					</ul>
+				</li>
+				<li class="fa">
+					<ul class="clearfix">
+						<li>{$dogInfo.dog_name}</li>
+						<li>
+						<if condition="$dogInfo.dog_sex eq 0">公
+						<else />母
+						</if>
+						</li>
+						<li>{$dogInfo.mic_num}</li>
+						<li>{$dogInfo.ear_num}</li>
+						<li>{$dogInfo.birthday|date='Y-m-d',###}</li>
+						<li>{$dogInfo.studbook}</li>
+						<li>{$dogInfo.dog_owner}</li>
+						<li>{$dogInfo.reproduce}</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="table table_2">
+			<ul>
+				<li class="fa">
+					<ul class="clearfix">
+						<li>DNA</li>
+						<li>髋/肘鉴定</li>
+						<li>训练资格</li>
+						<li>类别</li>
+						<li>国外证书号</li>
+					</ul>
+				</li>
+				<li class="fa">
+					<ul class="clearfix">
+						<li><if condition="$dogInfo.dog_dna neq ''">{$dogInfo.dog_dna}<else />无</if></li>
+						<li><if condition="$dogInfo.appraisal neq ''">{$dogInfo.appraisal}<else />无</if></li>
+						<li><if condition="$dogInfo.practice neq ''">{$dogInfo.practice}<else />无</if></li>
+						<li><if condition="$dogInfo.type neq ''">{$dogInfo.type}<else />无</if></li>
+						<li><if condition="$dogInfo.foreign_num neq ''">{$dogInfo.foreign_num}<else />无</if></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="father_button clearfix">
+			<div class="w_25 pull_left"><a href="javascript:void(0)" class="button_a" onclick="find_family('same','{$dogInfo.id}','{$dogInfo.father}','{$dogInfo.mother}','{$dogInfo.birthday}')">同父同母</a></div>
+			<div class="w_25 pull_left"><a href="javascript:void(0)" class="button_a" onclick="find_family('different','{$dogInfo.id}','{$dogInfo.father}','{$dogInfo.mother}','{$dogInfo.birthday}')">同父异母</a></div>
+			<div class="w_25 pull_left"><a href="javascript:void(0)" class="button_a" onclick="find_family('allsame','{$dogInfo.id}','{$dogInfo.father}','{$dogInfo.mother}','{$dogInfo.birthday}')">同胎犬</a></div>
+			<div class="w_25 pull_left"><a href="javascript:void(0)" class="button_a" onclick="find_family('somesame','{$dogInfo.id}','{$dogInfo.father}','{$dogInfo.mother}','{$dogInfo.birthday}')">后代犬</a></div>
+		</div>
+		
+		<script type="text/javascript">
+			function find_family(where,did,f,m,birt){
+				$.post("{:U('Dog/find_family')}",{where:where,dogid:did,father:f,mother:m,birthday:birt},function(data){
+					if(data){
+						$('.Result').css('display','block');
+						$("#res").html('');
+						var sex = "";
+						$.each(data,function(i,result){
+							
+							if(result['dog_sex'] == 0){
+								sex = "公";
+							}else{
+								sex = "母";
+							}
+							
+							item = "<ul class='clearfix'><li><a href='javascript:void(0)' style='color:#fec601' onclick='jump("+result['id']+")'>"+result['dog_name']+"</a></li>"
+								  +"<li>"+sex+"</li><li>"+result['mic_num']+"</li><li>"+result['ear_num']+"</li>"
+								  +"<li>"+result['birthday']+"</li><li>"+result['studbook']+"</li><li>"+result['dog_owner']+"</li><li>"+result['reproduce']+"</li></ul>";
+							$("#res").append(item);
+						});
+					}else{
+						$('.Result').css('display','none');
+						layer.msg('暂无数据',{ icon: 5,skin: 'layer-ext-moon'})
+						//$('.Result').html("<span style='display:inline-block;width:100px;text-align:center';>暂无数据！</span>");
+					}
+				},'json');
+			}
+		</script>
+		<!--查询到结果输出 in-->
+		
+		<div class="Result" style="display:none;">
+			<div class="title">
+				<h3>查询结果</h3>
+			</div>
+			<div class="table">
+				<ul>
+					<li class="fa">
+						<ul class="clearfix">
+							<li>犬名</li>
+							<li>性别</li>
+							<li>芯片号</li>
+							<li>耳号</li>
+							<li>出生日期</li>
+							<li>血统证书号</li>
+							<li>犬主</li>
+							<li>繁殖人</li>
+						</ul>
+					</li>
+					<li id="res" class="fa">
+							<!-- <ul class="clearfix">
+								<li><a href="javascript:void(0)" style="color:#fec601" onclick="jump({$list.id})">{$list.dog_name}</a></li>
+								<li>
+								<if condition="$list.dog_sex eq 0">公
+								<else />母
+								</if>
+								</li>
+								<li>{$list.mic_num}</li>
+								<li>{$list.ear_num}</li>
+								<li>{$list.birthday}</li>
+								<li>{$list.studbook}</li>
+								<li>{$list.reproduce}</li>
+							 </ul>-->
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--查询到结果输出 ent-->
+
+		<div class="father clearfix">
+			<div class="itme pull_left">
+				<div class="itme_border center">
+					<notempty name="fatherArr"><a href="{:U('Dog/dog_content',array('id'=>$fatherArr['id']))}">
+					<if condition="$fatherArr.pic_url neq '' ">
+					<img src="{$fatherArr.pic_url}" class="center" alt="">
+					</a>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</if>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</notempty>
+					<empty name="fatherArr['dog_name']">
+					<p class="text_center"><a href="{:U('Dog/father_search2',array('did'=>$id))}">点此录入犬父</a></p>
+					<else />
+					<p class="text_center">犬父：{$fatherArr.dog_name}</p>
+					</empty>
+				</div>
+			</div>
+			<div class="itme pull_left">
+				<div class="itme_border center">
+				<notempty name="motherArr">
+					<a href="{:U('Dog/dog_content',array('id'=>$motherArr['id']))}">
+					<if condition="$motherArr.pic_url neq '' ">
+					<img src="{$motherArr.pic_url}" class="center" alt="">
+					</a>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</if>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+				</notempty>
+					<empty name="motherArr['dog_name']">
+					<p class="text_center"><a href="{:U('Dog/mother_search2',array('did'=>$id))}">点此录入犬母</a></p>
+					<else />
+					<p class="text_center">犬母：{$motherArr.dog_name}</p>
+					</empty>
+				</div>
+			</div>
+			<div class="itme pull_left">
+				<div class="itme_border center">
+				<notempty name="grfatherArr">
+					<a href="{:U('Dog/dog_content',array('id'=>$grfatherArr['id']))}">
+					<if condition="$grfatherArr.pic_url neq '' ">
+					<img src="{$grfatherArr.pic_url}" class="center" alt=""></a>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</if>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</notempty>
+					<p class="text_center">爷爷：{$grfatherArr.dog_name}</p>
+				</div>
+			</div>
+			<div class="itme pull_left">
+				<div class="itme_border center">
+				<notempty name="grmotherArr">
+					<a href="{:U('Dog/dog_content',array('id'=>$grmotherArr['id']))}">
+					<if condition="$grmotherArr.pic_url neq '' ">
+					<img src="{$grmotherArr.pic_url}" class="center" alt=""></a>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</if>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</notempty>
+					<p class="text_center">奶奶：{$grmotherArr.dog_name}</p>
+				</div>
+			</div>
+			<div class="itme pull_left">
+				<div class="itme_border center">
+				<notempty name="grpaArr">
+					<a href="{:U('Dog/dog_content',array('id'=>$grpaArr['id']))}">
+					<if condition="$grpaArr.pic_url neq '' ">
+					<img src="{$grpaArr.pic_url}" class="center" alt=""></a>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</if>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</notempty>
+					<p class="text_center">姥爷：{$grpaArr.dog_name}</p>
+				</div>
+			</div>
+			<div class="itme pull_left">
+				<div class="itme_border center">
+				<notempty name="grmaArr">
+					<a href="{:U('Dog/dog_content',array('id'=>$grmaArr['id']))}">
+					<if condition="$grmaArr.pic_url neq '' ">
+					<img src="{$grmaArr.pic_url}" class="center" alt=""></a>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</if>
+					<else />
+					<img src="Public/Home/images/itme_author.jpg" class="center" alt=""></a>
+					</notempty>
+					<p class="text_center">姥姥：{$grmaArr.dog_name}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<include file="Public/footer"/>

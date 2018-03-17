@@ -1,0 +1,66 @@
+<include file="Public/header"/>
+<section class="banner"></section>
+<section class="box">
+	<div class="container clearfix">
+		<div class="left">
+			<h3>会员信息</h3>
+			<ul>
+				<li><a href="{:U('User/index')}">会员基本信息</a></li>
+				<li><a href="{:U('User/dog_list')}">我的犬只</a></li>
+				<li><a href="{:U('User/profile')}" class="active">修改密码</a></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="sear">
+				<div class="title">
+					<h3>修改密码</h3>
+				</div>
+				<div class="form">
+					<form class="login-form" action="__SELF__" method="post">
+						<div class="line_double">
+							<div class="left"><span>原密码</span></div>
+							<div class="rights"><input type="password" name="old" class="password"></div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>新密码</span></div>
+							<div class="rights"><input type="password" name="password" class="password1"></div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>确认密码</span></div>
+							<div class="rights"><input type="password" name="repassword" class="password2"></div>
+						</div>
+						<div class="line_button">
+							<input type="button" value="提交" id="submits">
+						</div>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$('#submits').on('click',function(){
+						if($('.password').val()=== ''){
+							layer.msg('请填写原密码');
+							return false;
+						}
+						if($('.password1').val()=== ''){
+							layer.msg('请填写新密码');
+							return false;
+						}
+						if($('.password1').val().length < 6){
+							layer.msg('密码不能小于6个字符');
+							return false;
+						}
+						if($('.password2').val()=== ''){
+							layer.msg('请填写确认密码');
+							return false;
+						}
+						if($('.password1').val() !== $('.password2').val()){
+							layer.msg('两次输入密码不一致');
+							return false;
+						}
+						$('form').submit();
+					})
+				</script>
+			</div>
+		</div>
+	</div>
+</section>
+<include file="Public/footer"/>

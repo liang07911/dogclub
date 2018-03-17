@@ -1,0 +1,221 @@
+<include file="Public/header"/>
+<section class="banner"></section>
+<section class="box">
+<div class="container clearfix">
+		<div class="left">
+			<h3>会员信息</h3>
+			<ul>
+				<li><a href="{:U('User/index')}">会员基本信息</a></li>
+				<li><a href="{:U('User/dog_list')}" class="active">我的犬只</a></li>
+				<li><a href="{:U('User/profile')}">修改密码</a></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="sear">
+				<div class="title">
+					<h3>犬只信息修改</h3>
+				</div>
+				<div class="form">
+					<form action="{:U('Dog/dog_update')}" method="post" enctype="multipart/form-data">
+						<div class="titleh4">
+							<h4>| 必填项</h4>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>犬名</span></div>
+							<div class="rights clearfix">
+								<input type="text" name="dog_name" value="{$dogInfo.dog_name}" class="error_message">
+								<span class="error_message"></span>
+							</div>
+						</div>
+						<div class="line_double clearfix">
+							<div class="left"><span>性别</span></div>
+							<div class="rights clearfix">
+								<if condition="$dogInfo.dog_sex eq 0">
+									<input type="radio" name="dog_sex" checked="checked" value="0"/><span>公</span>
+									<input type="radio" name="dog_sex" value="1"/><span>母</span>
+								<else />
+									<input type="radio" name="dog_sex" value="0"/><span>公</span>
+									<input type="radio" name="dog_sex" checked="checked" value="1"/><span>母</span>
+								</if>
+							</div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>耳号</span></div>
+							<div class="rights clearfix">
+								<input type="text" name="ear_num" value="{$dogInfo.ear_num}" class="error_message">
+								<span class="error_message"></span>
+							</div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>芯片号</span></div>
+							<div class="rights clearfix">
+								<input type="text" name="mic_num" value="{$dogInfo.mic_num}" class="error_message">
+								<span class="error_message"></span>
+							</div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>血统证书号</span></div>
+							<div class="rights clearfix">
+								<input type="text" name="studbook" value="{$dogInfo.studbook}" class="error_message">
+								<span class="error_message"></span>
+							</div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>出生日期</span></div>
+							<div class="rights p_relative  clearfix">
+								<input type="text" name="birthday" class="error_message" value="{$dogInfo.birthday|date='Y-m-d',###}"><span class="error_message"></span>
+								<div id="Date_box"></div>
+								<script type="text/javascript">
+								$('input[name=birthday]').on('click',function  () {
+										$('#Date_box').show()
+								});
+								var mySchedule = new Schedule({
+									el: '#Date_box',
+									//date: '2018-9-20',
+									clickCb: function (y,m,d) {
+										$('input[name=birthday]').val(y+'-'+m+'-'+d);
+										$('#Date_box').hide()
+									}
+								});
+							</script>
+							</div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>犬主</span></div>
+							<div class="rights clearfix">
+								<input type="text" name="dog_owner" value="{$dogInfo.dog_owner}" class="error_message">
+								<span class="error_message"></span>
+							</div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>犬主联系方式</span></div>
+							<div class="rights clearfix">
+								<input type="text" name="dog_owner" value="{$dogInfo.dog_owner}" class="error_message">
+								<span class="error_message"></span>
+							</div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>繁殖人</span></div>
+							<div class="rights clearfix">
+								<input type="text" name="reproduce" value="{$dogInfo.reproduce}" class="error_message">
+								<span class="error_message"></span>
+							</div>
+						</div>
+						<div class="titleh4">
+							<h4>| 选填项</h4>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>DNA</span></div>
+							<div class="rights"><input type="text" name="dog_dna" value="{$dogInfo.dog_dna}"></div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>类别</span></div>
+							<div class="rights"><input type="text" name="type" value="{$dogInfo.type}"></div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>训练资格</span></div>
+							<div class="rights"><input type="text" name="practice" value="{$dogInfo.practice}"></div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>髋/肘鉴定</span></div>
+							<div class="rights"><input type="text" name="appraisal" value="{$dogInfo.appraisal}"></div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>国外证书号</span></div>
+							<div class="rights"><input type="text" name="foreign_num" value="{$dogInfo.foreign_num}"></div>
+						</div>
+						<div class="line_double">
+							<div class="left"><span>照片</span></div>
+							<div class="rights files">
+								 <a href="javascript:;">上传</a>
+								 <if condition="$dogInfo.pic_url neq '' ">
+								 <img src="{$dogInfo.pic_url}" id="xmTanImg">
+								 <else />
+								<img src="Public/Home/images/100.jpg" id="xmTanImg">
+								</if>
+								<input type="file"  onchange="xmTanUploadImg(this,'xmTanImg')" name="pic_url">
+							</div>
+						</div>
+						<div class="line_button">
+							<input type="submit" value="修改" id='submits'>
+						</div>
+						<input type="hidden" name="dogid" value="{$id}">
+					</form>
+				</div>
+			</div>
+		</div>
+				<style>
+					span.error_message{color:red;}
+					.rights input.error_message{float:left;}
+				</style>
+				<script type="text/javascript">
+					
+					$(document).ready(function() {
+						jQuery.validator.setDefaults({
+							errorPlacement: function(error, element) {
+								error.appendTo(element.next());
+							}
+						  });
+						  
+						$("#submits").click(function(){
+						  var flag = $("form").validate().form();//表单校验
+						  if(!flag) {
+							return false;
+						  }
+						});
+						
+					  $("form").validate({
+						  onkeyup:false,
+							  onfocusout: function() { $("form").valid(); },
+						  rules: {
+							dog_name:{
+							  required: true
+							},
+							ear_num:{
+							  required: true
+							},
+							mic_num:{
+							  required: true
+							},
+							birthday:{
+							  required: true
+							},
+							studbook:{
+							  required: true
+							},
+							dog_owner:{
+							  required: true
+							},
+							reproduce:{
+							  required: true
+							}
+						  },
+						  messages: {
+							dog_name:{
+							  required: '必填'
+							},
+							ear_num:{
+							  required: '必填'
+							},
+							mic_num:{
+							  required: '必填'
+							},
+							birthday:{
+							  required: '必填'
+							},
+							studbook:{
+							  required: '必填'
+							},
+							dog_owner:{
+							  required: '必填'
+							},
+							reproduce:{
+							  required: '必填'
+							}
+						  }
+						});
+					});
+					
+			</script>
+</section>
+<include file="Public/footer"/>

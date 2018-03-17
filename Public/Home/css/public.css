@@ -1,0 +1,198 @@
+/*公共部分*/
+*{margin: 0;padding: 0;box-sizing: border-box;}
+ul li{list-style: none;}
+
+a{cursor: pointer;color: #000; text-decoration: none;transition: all .2s ease ;-moz-transition: all .2s ease ; /* Firefox 4 */-webkit-transition: all .2s ease ; /* Safari 和 Chrome */-o-transition: all .2s; ease }
+a.text_decoration{text-decoration:underline}
+.text_center{text-align: center;}
+.clearfix:before,.clearfix:after{/*触发bfc 清除浮动*/content:" ";display: table;}
+.clearfix:after{clear: both;}
+.pull_right{float: right;}
+.pull_left{float: left;}
+.p_relative{position: relative;}
+.center{margin: 0 auto;display: block;}
+.line_single,.line_radio,.line_button{padding-left: 176px;}
+.line_single{padding-top: 50px;padding-bottom: 30px;}
+.line_double{padding: 10px 0;padding-left: 57px}
+.line_button{padding-top: 20px;padding-bottom: 30px;}
+.line_single input[type=text],.line_single select,.line_double input[type=text],.line_double select,
+.line_double input[type=password]{height: 42px;width: 360px;line-height: 42px;padding-left: 1%;border-radius: 5px;border: 1px solid #ccc; }
+.line_radio{line-height: 40px;height: 40px;}
+.line_radio span{padding-left: 10px;}
+.line_button input[type=submit],
+.line_button input[type=button],
+.line_radio input[type=radio],
+.line_double .rights input[type=radio],select
+.line_double input[type=submit],
+.line_double input[type=button]
+{cursor:pointer;}
+.line_double input[type=submit],
+.line_double input[type=button],
+.line_button input[type=submit],
+.line_button input[type=button],
+a.button_a
+{color: #fff;line-height: 40px;height: 40px;background-color: #fec601;padding: 0 34px;border: none;border-radius: 5px;}
+a.button_a{display: block;width: 100px;}
+img{ object-fit: cover !important;}
+.w_auto{width: auto !important;}
+.p_l_0{padding-left: 0 !important}
+.p_t_0{padding-top: 0 !important}
+.m_t_0{margin-top: 0 !important}
+.m_tb_50{margin: 50px 0 !important}
+.w_486{width: 486px !important}
+.w_476{width: 476px !important;padding-left: 114px !important}
+.w_5{width: 50% !important}
+.w_25{width: 25% !important}
+.b_c_red{background-color: #f3543f !important}
+.p_t_30{padding-top: 30px}
+/*上传文件按钮插件*/
+.files{position:relative;}
+.files a,.files input[type=file]{position: absolute;top: 0;left: 200px;width: 64px;height: 64px;cursor: pointer;border-radius: 50px;}
+.files a {line-height: 64px;background-color: #f3543f;text-align: center;color: #fff;}
+.files img {border-radius: 5px;border: 1px solid #ccc;height: 64px;width: 64px;overflow: hidden;}
+.files input[type=file] {opacity: 0;}
+/*alertbox*/
+#alertBox{position: absolute;z-index: 9999;left:50%;top:50%;height:50px;text-align: center;background-color: #999;opacity: .9}
+/*头部*/
+header .container,footer .container,section .container{width: 1200px; margin: 0 auto;}
+header{position: absolute;z-index: 999;width: 100%;color: #fff;border-bottom: 2px solid #7a7b78}
+header .container{position: relative;}
+header .container a.logo,header .container ul.nav,header .container .header_user{float: left;}
+header .container a.logo{margin: 13px 0; width: 74px;height: 74px;display: block;background: url('../images/logo.png') no-repeat;}
+header .container ul.nav{margin-left: 130px;}
+header .container ul.nav li{display: inline-block; height: 100px;line-height: 100px;width: 150px;text-align: center;margin-right: 50px;}
+header .container ul.nav li a{color: #fff;}
+header .container ul.nav li:hover,header .container ul.nav li.active{border-bottom: 3px solid #fec601;}
+header .container .header_user{position: absolute;right: 0}
+header .container .header_user .login a{text-align: center;float: left;display: block; height: 40px;line-height: 36px;width: 100px;margin:30px 0;border:1px solid #fff; border-radius: 10px;color: #fff;}
+header .container .header_user .login a:first-child{margin-right: 50px;}
+header .container .header_user .login a:hover,header .container .header_user .login a.hover{background-color: #fff;color: #000}
+/*header .container .header_user .vip .pre a{text-align: center;height: 100px;line-height: 100px;color: #fff;}*/
+header .container .header_user .vip{width: 120px}
+header .container .header_user .vip .pre img{margin: 20px 0 20px 30px;width:59px;height:59px;border-radius: 100px;}
+header .container .header_user .vip .list ul li{height: 56px;line-height: 56px; position: relative;width: 160px}
+header .container .header_user .vip .list ul li img{position: absolute; top: 12px}
+header .container .header_user .vip .list ul li span{padding-left: 10px;position: absolute;
+left: 35px}
+header .container .header_user .vip .list ul li a {color: #fff}
+header .container .header_user .vip .list{display: none;}
+header .container .header_user .vip .active{display: block;}
+
+/*底部*/
+footer{background-color: #1f1f1f;color: #a0a0a0}
+footer .container .f_link{background-color: #161616;text-align: center;}
+footer .container .f_link a{margin:0 20px;display: inline-block;height: 100px;line-height: 100px;color: #a0a0a0}
+footer .container .address{text-align: center;} 
+footer .container .address h3{color: #f8c121;line-height: 90px;height: 90px;}
+footer .container .address p{line-height: 36px;}
+footer .container .tel ul li{display: inline-block;padding: 30px 0;}
+footer .container .tel ul li .box .left,footer .container .tel ul li .box .right{float: left;}
+footer .container .tel ul li .box .left{margin-left: 150px;}
+footer .container .tel ul li .box .right{margin-left: 20px;}
+footer .copy{background-color: #1c1c1c;color: #fff;text-align: center;height: 80px;line-height: 80px}
+
+/*首页*/
+.swiper-button-prev{background: url(../images/prev.png) no-repeat;background-size: 100%;height: 55px;width: 30px;}
+.swiper-button-next{background: url(../images/next.png) no-repeat;background-size: 100%;height: 55px;width: 30px;}
+.swiper-container {width: 100%;height:900px;max-height: 900px;max-width:1920px;}
+/*犬只信息查询页*/
+section.banner{background:url('../images/dog_banner.jpg') no-repeat center center;height: 370px;border-bottom:3px solid #fec601;}
+section.box .container,section.us .container{padding: 30px 0;}
+section.box .container .left{width: 200px;float: left;}
+section.box .container .left h3{line-height: 46px;height: 46px;text-align: center;background-color:#fec601; }
+section.box .container .left ul{padding: 30px 0;background-color: #f8f8f8;}
+section.box .container .left ul li{line-height: 60px;height: 60px;text-align: center;}
+section.box .container .left ul li a.active,section.box .container .left ul li a:hover{color:#fec601;font-weight: 600;}
+section.box .container .right{width: 940px;margin: 0 28px;float: left;}
+.title{width: 100%;border-bottom: 2px solid #ebebeb;}
+.title h3{margin-bottom: -2px;line-height: 46px;height: 46px;text-align: center;width: 140px;border-bottom: 2px solid #fec601;}
+/*section.box .container .right .Result{display: none;}
+section.box .container .right .active{display: block;}*/
+section.box .container .right .Result {text-align: center;}
+.table{padding-top: 30px}
+.table ul li.fa:nth-child(2),
+.table ul li.fa:nth-child(4),
+.table ul li.fa:nth-child(6),
+.table ul li.fa:nth-child(8),
+.table ul li.fa:nth-child(10),
+.table ul li.fa:nth-child(12)
+{background-color: #f5faf9}
+.table ul li ul{width: 100%}
+.table ul li ul li{border: 1px solid #ededed;float: left ;width: 16%;text-align: center;line-height: 50px;line-height: 50px;}
+.table ul li ul li:nth-child(2){width: 6%;}
+.table ul li ul li:nth-child(5){width: 9%;}
+.table ul li ul li:nth-child(6){width: 13%;}
+.table ul li ul li:nth-child(7),
+.table ul li ul li:nth-child(8){width: 12%;}
+.table_2 ul li ul li{width: 20% !important;}
+
+/*犬只录入*/
+.titleh4 h4{color:#fec601;/*height: 50px;line-height: 50px;*/}
+.form .enter{padding-top:16px }
+.enter{padding-top:16px }
+.enter ul li{float: left;position: relative;width: 25%}
+.enter ul li img{position: relative;width: 100%}
+.form{padding-top: 30px;}
+.line_double .left{width:120px;float: left;line-height: 42px;height: 42px;text-align: right;padding-right: 20px;}
+.line_double .rights input[type=radio],
+.line_double .rights span{height: 42px;line-height: 42px;display: block;float: left;}
+.line_double .rights span{padding-left: 10px}
+.line_double .rights input[type=radio]{margin: 0 0 0 80px}
+section.box .container .right .line_double .left{width:120px;float: left;line-height: 42px;height: 42px;text-align: right;padding-right: 20px;}
+/*犬只详情页*/
+section.box .container .author .author1{height: 240px;width: 100%; background:url('../images/vip_bg.jpg') no-repeat center center;}
+section.box .container .author .author1 img{width: 80px;height: 80px;border-radius: 50px;margin: 30px 0 0 30px}
+section.box .container .author .author1 span{position: relative; top: -30px;left: 20px;}
+section.box .container .author .author1 .button{float: right; margin: 0 30px 0 0;}
+section.box .container .author .author1 .button a{width: auto;text-align: center;margin-top: 30px}
+section.box .container .author .author2{position: relative;height: 250px;width: 250px;margin: -125px auto 0 auto;}
+section.box .container .author .author2 img{display: block; position: absolute;left:50%; top:50%;margin-top: -125px; ;height: 250px;width: 250px;margin-left: -125px; ;border-radius:250px;background-repeat: no-repeat;background-position: center;background-size: 100%;}
+section.box .container .father_button{margin: 36px 0;}
+section.box .container .father_button a{width: 150px;margin: 0 auto;text-align: center;}
+section.box .container .father{padding-top:70px;background-color: #f4f4f4;margin-top: 30px;}
+section.box .container .father .itme{width: 25%;height: 300px}
+section.box .container .father .itme:nth-child(1),
+section.box .container .father .itme:nth-child(2){width: 50%;}
+section.box .container .father .itme .itme_border{width: 220px;height: 234px;border: 2px solid #fec601;border-radius: 5px;}
+section.box .container .father .itme .itme_border img{margin-top: -32px;border-radius: 5px;}
+section.box .container .father .itme .itme_border p {height: 50px;line-height: 60px;}
+
+/*关于我们页面*/
+section.us_banner{background:url('../images/bg_bannar3.jpg') no-repeat center center;height: 370px;border-bottom:3px solid #fec601;}
+section.us .container .map{padding-top: 100px;}
+section.us .container .map .left{width: 600px}
+section.us .container .map .right{width: 600px;padding: 20px}
+section.us .container .map .right .title{border-bottom: 1px solid #c9b9a2}
+section.us .container .map .right .title h4{line-height: 38px}
+section.us .container .map .right .text{line-height: 36px;}
+section.us .box {height: 922px;position: relative;}
+section.us .js{width: 100%; height: 640px;background-color: #1f1f1f;color: #fff;margin-top: 112px;}
+section.us .bg{position: absolute ;width: 100%;top:-112px ;background:url('../images/img_middle.png') no-repeat center center;height: 922px;}
+section.us .js .container{ position: relative; z-index: 9999; padding: 100px 450px 0 80px;line-height: 38px;text-align: center;}
+section.us .container .zz{padding-bottom: 100px;}
+section.us .container .zz .left{width: 450px}
+section.us .container .zz .right{width: 600px;padding: 20px}
+section.us .container .zz .right .title{border-bottom: 1px solid #c9b9a2}
+section.us .container .zz .right .title h4{line-height: 38px;text-align: center;background-color: #fff;width: 150px;margin: 0 auto;margin-bottom: -19px}
+section.us .container .zz .right .text{line-height: 36px;text-align: center;padding-top: 50px;}
+.l_h_100{width: 100%;height: 100px;}
+
+
+/*日期*/
+
+#Date_box{display: none;width: 360px;padding: 35px 20px;font-size: 13px;border: 1px solid #ccc;border-radius: 5px;position: absolute;z-index: 999;background-color: #fff;opacity: .9;left: 120px;top: 0;}
+.schedule-hd{display: flex;justify-content: space-between;padding: 0 15px;}
+.today{flex: 1;text-align: center}
+.ul-box{overflow: hidden;}
+.ul-box > li{float: left;width: 14.28%;text-align: center;padding: 5px 0;}
+.other-month{color: #999999;}
+.current-month{color: #333333;}
+.today-style{border-radius: 50%;background: #58d321;}
+.arrow{cursor: pointer;}
+.dayStyle{display: inline-block !important;width: 35px;height: 35px;border-radius: 50%;text-align: center;line-height: 35px;cursor: pointer;}
+.current-month > .dayStyle:hover{background: #00BDFF;color: #ffffff}
+.today-flag{background: #00C2B1;color: #fff}
+.boxshaw{box-shadow: 2px 2px 15px 2px #e3e3e3;}
+.selected-style {background: #00BDFF;color: #ffffff;}
+#h3Ele{text-align: center;padding: 10px;}
+#Date_box span{padding: 0;height: 35px;line-height: 35px;display: inline;float: none;}

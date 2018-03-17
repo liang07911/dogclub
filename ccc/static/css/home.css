@@ -1,0 +1,33 @@
+section.banner{
+	background:url(../images/bg_home.jpg) no-repeat center;
+	background-size: 100%; 
+	height: 11.9rem;
+}
+section.banner .container .logo{
+	padding-top: 5.9rem;
+}
+section.banner .container .logo img:first-child{width:6.65rem}
+section.banner .container .logo img:last-child{width: 1.09rem;padding-top: .68rem;}
+section.banner .container .address{color: #fff;font-size: .18rem;padding-top: .48rem;}
+section.banner .container .address p{line-height: .4rem;}
+section.banner .container .tel ul{ display:flex;/*多栏多列布局*/padding-top: .42rem;}
+section.banner .container .tel ul li:nth-child(1){padding-left: .16rem;}
+section.banner .container .tel ul li{color: #fff; flex:1 auto;}
+section.banner .container .tel ul li:nth-child(1) img{width: 1.97rem;}
+section.banner .container .tel ul li:nth-child(2) img{width: 2.48rem;}
+section.banner .container .tel ul li:nth-child(3) img{width: 2.27rem;}
+@media only screen and (max-width: 420px){  
+	section.banner .container .tel ul li:nth-child(1) {padding-left: 0}
+	section.banner .container .logo{padding-top: 5.2rem;}
+	/*section.banner{height: 10.2rem;}*/
+} 
+@media only screen and (max-width: 380px){ 
+	section.banner .container .logo{padding-top: 6.3rem;}
+	section.banner .container .tel ul{padding-top: .75rem;}
+	section.banner{height: 12.6rem;}
+} 
+@media only screen and (max-width: 320px){  
+	section.banner .container .tel ul li:nth-child(1) {padding-left: 0}
+	section.banner .container .logo{padding-top: 4.2rem;}
+	section.banner{height: 10.4rem;}
+} 

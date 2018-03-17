@@ -1,0 +1,84 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>犬只列表</h2>
+	</div>
+	
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">图片</th>
+		<th class="">ID</th>
+		<th class="">犬名</th>
+		<th class="">狗性别</th>
+		<th class="">芯片号</th>
+		<th class="">耳号</th>
+		<th class="">出生日期</th>
+		<th class="">血统证书号</th>
+		<th class="">犬主人</th>
+		<th class="">繁殖人</th>
+		<th class="">狗爸爸</th>
+		<th class="">狗妈妈</th>
+		<th class="">DNA</th>
+		<th class="">类别</th>
+		<th class="">训练资格</th>
+		<th class="">髋/肘鉴定</th>
+		<th class="">外国证书号</th>
+		<!-- <th class="">操作</th> -->
+		</tr>
+    </thead>
+    <tbody>
+		<notempty name="_list">
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.uid}" /></td>
+            <td><img alt="" src="{$vo.pic_url}" width="40px" height="40px"></td>
+			<td>{$vo.id} </td>
+			<td>{$vo.dog_name}</td>
+			<td><if condition="$vo.dog_sex eq 0">公<else />母</if></td>
+			<td>{$vo.mic_num}</td>
+			<td>{$vo.ear_num}</td>
+			<td>{$vo.birthday|time_format}</td>
+			<td>{$vo.studbook}</td>
+			<td>{$vo.dog_owner}</td>
+			<td>{$vo.reproduce}</td>
+			<td>{$vo.father}</td>
+			<td>{$vo.mother}</td>
+			<td>{$vo.dog_dna}</td>
+			<td>{$vo.type}</td>
+			<td>{$vo.practice}</td>
+			<td>{$vo.appraisal}</td>
+			<td>{$vo.foreign_num}</td>
+			<!-- <td><eq name="vo.status" value="1">
+				<a href="{:U('User/changeStatus?method=forbidUser&id='.$vo['uid'])}" class="ajax-get">禁用</a>
+				<else/>
+				<a href="{:U('User/changeStatus?method=resumeUser&id='.$vo['uid'])}" class="ajax-get">启用</a>
+				</eq>
+				<a href="{:U('AuthManager/group?uid='.$vo['uid'])}" class="confirm ajax-get">删除</a>
+             </td> -->
+		</tr>
+		</volist>
+		<else/>
+		<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+    //导航高亮
+    highlight_subnav('{:U('Dog/index')}');
+	</script>
+</block>
